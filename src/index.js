@@ -1,17 +1,27 @@
-function cod10(str){
-  var solved="";
-  for(var i=0; i<str.length;i++){
-    var asciiNum = str[i].charCodeAt();
-    if(asciiNum>=65 && asciiNum <=113){
-      solved += String.fromCharCode(asciiNum + 10);
-    } else if (asciiNum >=114 && asciiNum<=122){
-      solved += String.fromCharCode(asciiNum -10);
-    }else{
-      solved +=str[i]
-    }
-  }
-  return solved;
+function caesarCypher(str,num){
+ let lowerCaseStr =str.toLowerCase();
+ let alphaB = 'abcdefghijklmnopqrstuvwyz'.split(' ');
+ let newStr = ' ';
+
+ console.log(alphaB)
+
+ for(var i =0; i<lowerCaseStr.length; i++){
+   var currentLetter = lowerCaseStr[i];
+   if(currentLetter === ' '){
+     newStr += currentLetter;
+     continue;
+   }
+   var currentIndex =alphaB.indexOf(currentLetter);
+   var newIndex = currentIndex + num;
+   if(newIndex > 25) newIndex = newIndex -26;
+   if(newIndex < 0) newIndex = newIndex +26;
+  /* if(str[i]===str[i].toUpperCase()){
+     newStr += alphaB[newIndex].toUpperCase();
+   }
+   else newStr += alphaB[newIndex];
+  */}
+ return newStr;
 }
 
-cod10("")
+console.log(caesarCypher("zrz - iokr, iye uxyg wo. zrzkeqrdi li zrzkdebo",10))
 
